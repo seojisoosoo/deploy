@@ -1,18 +1,54 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import styled from "styled-components";
+import axios from "axios";
 //axios.get이용
+
+const StyledBlog = styled.button`
+  background-color: blue;
+  border: 0;
+  border-radius: 20px;
+  margin: 2vh;
+  padding: 1vh;
+  outline: 0;
+  color: black;
+  cursor: pointer;
+  font-size: 30px;
+`;
 const Read = () => {
   const [blogs, setBlogs] = useState([]);
-  const navgate = useNavigate();
+  const navigate = useNavigate();
 
-  const handleClick = () => {};
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.get("http://127.0.0.1:8000/");
+      setBlogs(response.data.data);
+      console.log("success");
+    };
+    fetchData();
+  }, []);
+
+  if (!blogs) {
+    return null;
+  }
+  const handleClick = (url, id) => {
+    navigate(url, { state: blogs[id - 1] });
+  };
   return (
     <>
-      {blogs.map((blog) => (
-        <div onClick={() => handleClick(`/${blog.memId}`, blog.memId)}>
-          {blog.name}
+      <h1>Blog</h1>
+
+      {blogs.map((blog, index) => (
+        <div key={index}>
+          <StyledBlog onClick={() => handleClick(`/${index}`, index)}>
+            {blog.title}
+          </StyledBlog>
         </div>
       ))}
+
+      <button>
+        <Link to="/create">글쓰기</Link>
+      </button>
     </>
   );
 };

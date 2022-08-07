@@ -1,6 +1,7 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+// import { Outlet } from "react-router-dom";
 import { Link } from "react-router-dom";
+import Read from "./Read";
 const Blog = () => {
   return (
     <>
@@ -8,7 +9,8 @@ const Blog = () => {
       <button>
         <Link to="/create">글쓰기</Link>
       </button>
-      <Outlet />
+      <Read />
+      {/* <Outlet /> */}
     </>
   );
 };
