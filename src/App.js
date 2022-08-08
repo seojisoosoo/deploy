@@ -10,12 +10,15 @@ import ReadDetail from "./pages/ReadDetail";
 const App = () => {
   return (
     <>
+      <h1>Blog</h1>
+
       <Routes>
         {/* <Route path="/" element={<Blog />}></Route> */}
         <Route path="/" element={<Read />}>
-          <Route path=":id" element={<ReadDetail />} />
-          <Route path="/update" element={<Update />} />
-          <Route path="/delete" element={<Delete />} />
+          <Route path=":id" element={<ReadDetail />}>
+            <Route path="update" element={<Update />} />
+            <Route path="delete" element={<Delete />} />
+          </Route>
         </Route>
         <Route path="/create" element={<Create />}></Route>
       </Routes>

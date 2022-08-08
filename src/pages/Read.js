@@ -5,7 +5,7 @@ import axios from "axios";
 //axios.get이용
 
 const StyledBlog = styled.button`
-  background-color: blue;
+  background-color: skyblue;
   border: 0;
   border-radius: 20px;
   margin: 2vh;
@@ -32,12 +32,11 @@ const Read = () => {
     return null;
   }
   const handleClick = (url, id) => {
-    navigate(url, { state: blogs[id - 1] });
+    navigate(url, { state: { id: id, blogs: blogs[id - 1] } });
   };
+
   return (
     <>
-      <h1>Blog</h1>
-
       {blogs.map((blog, index) => (
         <div key={index}>
           <StyledBlog onClick={() => handleClick(`/${index}`, index)}>
@@ -45,7 +44,6 @@ const Read = () => {
           </StyledBlog>
         </div>
       ))}
-
       <button>
         <Link to="/create">글쓰기</Link>
       </button>

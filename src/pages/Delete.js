@@ -1,18 +1,21 @@
 import React from "react";
 import { useEffect } from "react";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
 //axios.delete이용
 
 const Delete = () => {
-  useEffect(() => {
-    const deleteData = async () => {
-      const response = await axios.delete("http://127.0.0.1:8000/");
-      console.log(response);
-    };
-    deleteData();
-  }, []);
+  const { state } = useLocation();
 
-  return <div>Delete</div>;
+  // useEffect(() => {
+  //   const deleteData = async (index) => {
+  //     const response = await axios.delete("http://127.0.0.1:8000/${state}");
+  //     console.log(response);
+  //   };
+  //   deletDate();
+  // }, []);
+
+  return <></>;
 };
 
 export default Delete;
