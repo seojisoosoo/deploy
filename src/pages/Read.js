@@ -5,15 +5,15 @@ import axios from "axios";
 //axios.get이용
 
 const StyledBlog = styled.button`
-  background-color: skyblue;
-  border: 0;
+  border: 1px solid black;
+  background-color: white;
   border-radius: 20px;
-  margin: 2vh;
+  margin: 1vh 0vh;
   padding: 1vh;
   outline: 0;
   color: black;
   cursor: pointer;
-  font-size: 30px;
+  font-size: 20px;
 `;
 const Read = () => {
   const [blogs, setBlogs] = useState([]);
