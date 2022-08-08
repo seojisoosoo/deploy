@@ -13,7 +13,7 @@ const ReadDetail = () => {
       <h1>{state.blogs.title}</h1>
       <p>작성자 | {state.blogs.writer}</p>
       <p>{state.blogs.body}</p>
-      console.log(state.blogs.title)
+
       {/* update */}
       <button onClick={handleClick("/update", state.id)}>Update</button>
       {/* delete */}

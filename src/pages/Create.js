@@ -1,7 +1,10 @@
 import React, { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 // import axios from "axios";
+//aimport { useHistory } from 'react-router';
 //axios.post 이용
 const Create = () => {
+  let navigate = useNavigate();
   const onSubmit = (e) => {
     e.preventDefault(); //새로고침x
     // console.log(titleRef.current.value);
@@ -25,6 +28,7 @@ const Create = () => {
           alert("추가완료!");
         }
       });
+    navigate("/");
   };
 
   const titleRef = useRef(null);

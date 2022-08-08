@@ -32,9 +32,9 @@ const Read = () => {
     return null;
   }
   const handleClick = (url, id) => {
-    navigate(url, { state: { id: id, blogs: blogs[id - 1] } });
+    navigate(url, { state: { id: id, blogs: blogs[id] } });
+    console.log(blogs[id]);
   };
-
   return (
     <>
       {blogs.map((blog, index) => (

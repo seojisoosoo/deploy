@@ -14,12 +14,12 @@ const App = () => {
 
       <Routes>
         {/* <Route path="/" element={<Blog />}></Route> */}
-        <Route path="/" element={<Read />}>
-          <Route path=":id" element={<ReadDetail />}>
-            <Route path="update" element={<Update />} />
-            <Route path="delete" element={<Delete />} />
-          </Route>
+        <Route path="/" element={<Read />}></Route>
+        <Route path="/:id" element={<ReadDetail />}>
+          <Route path="update" element={<Update />} />
+          <Route path="delete" element={<Delete />} />
         </Route>
+
         <Route path="/create" element={<Create />}></Route>
       </Routes>
     </>
