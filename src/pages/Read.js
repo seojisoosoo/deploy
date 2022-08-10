@@ -15,6 +15,9 @@ const StyledBlog = styled.button`
   cursor: pointer;
   font-size: 20px;
 `;
+const Button = styled.button`
+  text-decoration: none;
+`;
 const Read = () => {
   const [blogs, setBlogs] = useState([]);
   const navigate = useNavigate();
@@ -38,6 +41,10 @@ const Read = () => {
   };
   return (
     <>
+      <Link to="/create">
+        <Button>글쓰기</Button>
+      </Link>
+
       {blogs.map((blog) => (
         <div key={blog.id}>
           <StyledBlog onClick={() => handleClick(`/${blog.id}`, blog.id)}>
@@ -45,9 +52,6 @@ const Read = () => {
           </StyledBlog>
         </div>
       ))}
-      <button>
-        <Link to="/create">글쓰기</Link>
-      </button>
     </>
   );
 };

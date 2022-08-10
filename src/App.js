@@ -13,6 +13,7 @@ const Dom = styled.div`
 const Button = styled.button`
   height: 25px;
   margin: 30px 0px 0px 10px;
+  cursor: pointer;
 `;
 const App = () => {
   const navigate = useNavigate();

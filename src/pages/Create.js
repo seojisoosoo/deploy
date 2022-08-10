@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 const Create = () => {
   let navigate = useNavigate();
   const onSubmit = (e) => {
-    e.preventDefault(); //새로고침x
+    // e.preventDefault(); //새로고침x
     fetch("http://127.0.0.1:8000/", {
       method: "POST",
       headers: {
