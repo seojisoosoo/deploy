@@ -29,7 +29,6 @@ const App = () => {
       </Dom>
 
       <Routes>
-        {/* <Route path="/" element={<Blog />}></Route> */}
         <Route path="/" element={<Read />}></Route>
         <Route path="/:id" element={<ReadDetail />}>
           <Route path="update" element={<Update />} />

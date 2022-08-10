@@ -1,11 +1,13 @@
 import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, Link, useNavigate } from "react-router-dom";
 
 const ReadDetail = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
-  const handleClick = (url, id) => {
-    navigate(url, { state: id });
+  const buttonClick = (url, id) => {
+    navigate(url, { state: { id: id, blogs: state.blogs } });
+    console.log("good");
+    console.log(state.id);
   };
 
   return (
@@ -15,9 +17,14 @@ const ReadDetail = () => {
       <p>{state.blogs.body}</p>
 
       {/* update */}
-      <button onClick={handleClick("/update", state.id)}>Update</button>
+      <button onClick={() => buttonClick(`/${state.id}/update`, state.id)}>
+        Update
+      </button>
+
       {/* delete */}
-      <button onClick={handleClick("/delete", state.id)}>Delete</button>
+      <button onClick={() => buttonClick(`/${state.id}/delete`, state.id)}>
+        Delete
+      </button>
     </>
   );
 };
