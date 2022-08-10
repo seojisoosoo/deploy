@@ -7,10 +7,6 @@ const Create = () => {
   let navigate = useNavigate();
   const onSubmit = (e) => {
     e.preventDefault(); //새로고침x
-    // console.log(titleRef.current.value);
-    // console.log(writerRef.current.value);
-    // console.log(bodyRef.current.value);
-
     fetch("http://127.0.0.1:8000/", {
       method: "POST",
       headers: {

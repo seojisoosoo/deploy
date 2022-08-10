@@ -22,10 +22,11 @@ const Update = () => {
     // console.log(writerRef.current.value);
     // console.log(bodyRef.current.value);
 
-    fetch(`http://127.0.0.1:8000/${state.id}/`, {
+    fetch(`http://127.0.0.1:8000/${state.id}/update`, {
       method: "PUT",
       headers: {
-        "Content-Type": "application/json",
+        // "Content-Type": "application/json",
+        Accept: "application/json",
       },
       body: JSON.stringify({
         title: titleRef.current.value,
@@ -33,10 +34,13 @@ const Update = () => {
         body: bodyRef.current.value,
       }),
     })
-      .then((res) => res.json())
+      .then((res) => {
+        res.json();
+        console.log(res);
+      })
       .then((res) => {
         if (res.ok) {
-          alert("추가완료!");
+          alert("수정완료!");
         }
       });
     navigate("/");

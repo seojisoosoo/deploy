@@ -1,6 +1,5 @@
 import React from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
-import Blog from "./pages/Blog";
 import Create from "./pages/Create";
 import Read from "./pages/Read";
 import Update from "./pages/Update";

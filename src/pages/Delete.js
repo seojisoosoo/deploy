@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import axios from "axios";
 import { useLocation, Navigate } from "react-router-dom";
 //axios.delete이용
@@ -14,8 +14,13 @@ const Delete = () => {
   //   .catch((error) => console.log("error"));
 
   axios
-    .delete(`http://127.0.0.1:8000/${state.id}/`)
+    .delete(`http://127.0.0.1:8000/${state.id}/delete`)
     .then((response) => response.data)
+    .then((response) => {
+      if (response.ok) {
+        alert("삭제완료!");
+      }
+    })
     .catch(console.log("error"));
   return (
     <>
