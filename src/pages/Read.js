@@ -24,7 +24,7 @@ const Read = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get("http://127.0.0.1:8000/");
+      const response = await axios.get("https://doingdjango.herokuapp.com/");
       setBlogs(response.data.data);
       console.log("success");
     };

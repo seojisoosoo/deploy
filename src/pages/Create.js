@@ -7,7 +7,7 @@ const Create = () => {
   let navigate = useNavigate();
   const onSubmit = (e) => {
     // e.preventDefault(); //새로고침x
-    fetch("http://127.0.0.1:8000/", {
+    fetch("https://doingdjango.herokuapp.com/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

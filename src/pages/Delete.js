@@ -8,7 +8,7 @@ const Delete = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
   axios
-    .delete(`http://127.0.0.1:8000/${state.id}/delete`)
+    .delete(`https://doingdjango.herokuapp.com/${state.id}/delete`)
     .then((res) => res)
     .then((res) => {
       console.log("res받았다" + res);
