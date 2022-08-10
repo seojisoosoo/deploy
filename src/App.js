@@ -30,10 +30,9 @@ const App = () => {
 
       <Routes>
         <Route path="/" element={<Read />}></Route>
-        <Route path="/:id" element={<ReadDetail />}>
-          <Route path="update" element={<Update />} />
-          <Route path="delete" element={<Delete />} />
-        </Route>
+        <Route path="/:id" element={<ReadDetail />}></Route>
+        <Route path="/:id/update" element={<Update />} />
+        <Route path="/:id/delete" element={<Delete />} />
 
         <Route path="/create" element={<Create />}></Route>
       </Routes>

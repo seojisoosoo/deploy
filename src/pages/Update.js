@@ -22,7 +22,7 @@ const Update = () => {
     // console.log(writerRef.current.value);
     // console.log(bodyRef.current.value);
 
-    fetch(`http://127.0.0.1:8000/${state.id}/update`, {
+    fetch(`http://127.0.0.1:8000/${state.id}/`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -51,7 +51,7 @@ const Update = () => {
       <input
         type="text"
         name="title"
-        value={state.blogs.title}
+        defaultValue={state.blogs.title}
         ref={titleRef}
       />
       <br />
@@ -59,7 +59,7 @@ const Update = () => {
       <input
         type="text"
         name="writer"
-        value={state.blogs.writer}
+        defaultValue={state.blogs.writer}
         ref={writerRef}
       />
       <br />
@@ -68,7 +68,7 @@ const Update = () => {
         name="body"
         cols="30"
         rows="10"
-        value={state.blogs.body}
+        defaultValue={state.blogs.body}
         ref={bodyRef}
       />
       <br />

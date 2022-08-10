@@ -14,8 +14,8 @@ const Delete = () => {
   //   .catch((error) => console.log("error"));
 
   axios
-    .delete(`http://127.0.0.1:8000/${state.id}/delete`)
-    .then((response) => response.json())
+    .delete(`http://127.0.0.1:8000/${state.id}/`)
+    .then((response) => response.data)
     .catch(console.log("error"));
   return (
     <>
