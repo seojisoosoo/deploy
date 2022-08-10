@@ -32,14 +32,16 @@ const Read = () => {
     return null;
   }
   const handleClick = (url, id) => {
-    navigate(url, { state: { id: id, blogs: blogs[id] } });
+    // navigate(url, { state: { id: id, blogs: blogs[id] } });
+    navigate(url, { state: { id: id, blogs: blogs } });
+
     console.log(blogs[id]);
   };
   return (
     <>
-      {blogs.map((blog, index) => (
-        <div key={index}>
-          <StyledBlog onClick={() => handleClick(`/${index}`, index)}>
+      {blogs.map((blog) => (
+        <div key={blog.id}>
+          <StyledBlog onClick={() => handleClick(`/${blog.id}`, blog.id)}>
             {blog.title}
           </StyledBlog>
         </div>

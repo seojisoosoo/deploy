@@ -2,25 +2,10 @@ import React, { useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 //axios.put이용
 const Update = () => {
-  // const { state } = useLocation();
-  // fetch("http://127.0.0.1:8000/{state}",{
-  //   method:'PUT',
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //   },
-  //   body : JSON.stringify({
-  //     ...
-  //   })
-  // })
-  // return <button onClick={updateData(state)}>SAVE</button>;
-
   const navigate = useNavigate();
   const { state } = useLocation();
   const onSubmit = (e) => {
     e.preventDefault(); //새로고침x
-    // console.log(titleRef.current.value);
-    // console.log(writerRef.current.value);
-    // console.log(bodyRef.current.value);
 
     fetch(`http://127.0.0.1:8000/${state.id}/update`, {
       method: "PUT",
@@ -34,10 +19,7 @@ const Update = () => {
         body: bodyRef.current.value,
       }),
     })
-      .then((res) => {
-        res.json();
-        console.log(res);
-      })
+      .then((res) => res.json())
       .then((res) => {
         if (res.ok) {
           alert("수정완료!");
@@ -55,7 +37,7 @@ const Update = () => {
       <input
         type="text"
         name="title"
-        defaultValue={state.blogs.title}
+        defaultValue={state.detail.title}
         ref={titleRef}
       />
       <br />
@@ -63,7 +45,7 @@ const Update = () => {
       <input
         type="text"
         name="writer"
-        defaultValue={state.blogs.writer}
+        defaultValue={state.detail.writer}
         ref={writerRef}
       />
       <br />
@@ -72,7 +54,7 @@ const Update = () => {
         name="body"
         cols="30"
         rows="10"
-        defaultValue={state.blogs.body}
+        defaultValue={state.detail.body}
         ref={bodyRef}
       />
       <br />
