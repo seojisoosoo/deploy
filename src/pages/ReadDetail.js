@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-
+import axios from "axios";
 const ReadDetail = () => {
   const { state } = useLocation();
   const id = state.id;
@@ -13,14 +13,23 @@ const ReadDetail = () => {
   console.log(detail);
 
   const deleted = () => {
-    fetch(`https://doingdjango.herokuapp.com/${state.id}/delete`, {
-      method: "DELETE",
-    }).then((res) => {
-      console.log(res.ok);
-      if (res.ok) {
-        navigate("/");
-      }
-    });
+    // fetch(`https://doingdjango.herokuapp.com/${state.id}/delete`, {
+    //   method: "DELETE",
+    // }).then((res) => {
+    //   console.log(res.ok);
+    //   if (res.ok) {
+    //     alert("삭제완료!");
+    //     navigate("/");
+    //   }
+    // });
+    axios
+      .delete(`https://doingdjango.herokuapp.com/${state.id}/delete`)
+      .then((res) => {
+        if (res.data.ok) {
+          alert("삭제완료!");
+          navigate("/");
+        }
+      });
   };
 
   return (
