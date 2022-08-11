@@ -5,7 +5,7 @@ const Update = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
   const onSubmit = (e) => {
-    // e.preventDefault(); //새로고침x
+    e.preventDefault(); //새로고침x
 
     fetch(`https://doingdjango.herokuapp.com/${state.id}/update`, {
       method: "PUT",
@@ -21,11 +21,12 @@ const Update = () => {
     })
       .then((res) => res.json())
       .then((res) => {
+        console.log(res);
         if (res.ok) {
           alert("수정완료!");
+          navigate("/");
         }
       });
-    navigate("/");
   };
 
   const titleRef = useRef(null);

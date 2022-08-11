@@ -3,7 +3,6 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import Create from "./pages/Create";
 import Read from "./pages/Read";
 import Update from "./pages/Update";
-import Delete from "./pages/Delete";
 import ReadDetail from "./pages/ReadDetail";
 import styled from "styled-components";
 
@@ -32,8 +31,6 @@ const App = () => {
         <Route path="/" element={<Read />}></Route>
         <Route path="/:id" element={<ReadDetail />}></Route>
         <Route path="/:id/update" element={<Update />} />
-        <Route path="/:id/delete" element={<Delete />} />
-
         <Route path="/create" element={<Create />}></Route>
       </Routes>
     </>

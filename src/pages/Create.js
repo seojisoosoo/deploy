@@ -5,8 +5,7 @@ import { useNavigate } from "react-router-dom";
 //axios.post 이용
 const Create = () => {
   let navigate = useNavigate();
-  const onSubmit = (e) => {
-    // e.preventDefault(); //새로고침x
+  const onSubmit = () => {
     fetch("https://doingdjango.herokuapp.com/", {
       method: "POST",
       headers: {
@@ -22,9 +21,9 @@ const Create = () => {
       .then((res) => {
         if (res.ok) {
           alert("추가완료!");
+          navigate("/");
         }
       });
-    navigate("/");
   };
 
   const titleRef = useRef(null);
@@ -32,7 +31,7 @@ const Create = () => {
   const bodyRef = useRef(null);
 
   return (
-    <form>
+    <div>
       제목:
       <input type="text" name="title" ref={titleRef} />
       <br />
@@ -42,10 +41,8 @@ const Create = () => {
       본문:
       <textarea name="body" cols="30" rows="10" ref={bodyRef} />
       <br />
-      <button type="submit" onClick={onSubmit}>
-        submit
-      </button>
-    </form>
+      <button onClick={onSubmit}>submit</button>
+    </div>
   );
 };
 

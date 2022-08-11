@@ -12,6 +12,17 @@ const ReadDetail = () => {
   console.log("내용");
   console.log(detail);
 
+  const deleted = () => {
+    fetch(`https://doingdjango.herokuapp.com/${state.id}/delete`, {
+      method: "DELETE",
+    }).then((res) => {
+      console.log(res.ok);
+      if (res.ok) {
+        navigate("/");
+      }
+    });
+  };
+
   return (
     <>
       <h1>{detail.title}</h1>
@@ -20,9 +31,7 @@ const ReadDetail = () => {
       <button onClick={() => buttonClick(`/${detail.id}/update`, detail.id)}>
         Update
       </button>
-      <button onClick={() => buttonClick(`/${detail.id}/delete`, detail.id)}>
-        Delete
-      </button>
+      <button onClick={deleted}>Delete</button>
     </>
   );
 };
